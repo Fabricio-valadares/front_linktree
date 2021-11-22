@@ -1,0 +1,28 @@
+.conteiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightseagreen;
+  height: 100%;
+  width: 55%;
+}
+
+.conteinerCreateUser {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: magenta;
+
+  width: 90%;
+  height: 90%;
+}
+
+.createSessao {
+  display: flex;
+  align-items: center;
+  background-color: lime;
+
+  width: 95%;
+  height: 10%;
+}

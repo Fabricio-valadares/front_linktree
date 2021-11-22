@@ -1,0 +1,17 @@
+.conteiner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: mediumblue;
+  height: 70%;
+  width: 95%;
+}
+
+.divCard {
+  width: 100%;
+  height: 20%;
+  background-color: mediumspringgreen;
+  display: flex;
+  align-items: center;
+}

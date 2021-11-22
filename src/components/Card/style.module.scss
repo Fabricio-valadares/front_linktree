@@ -1,0 +1,23 @@
+.cardArea {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
+  width: 90%;
+  background-color: mediumorchid;
+}
+
+.divCard {
+  width: 100%;
+  height: 20%;
+  background-color: olive;
+  display: flex;
+  align-items: center;
+}
+
+.divLink {
+  width: 95%;
+  height: 30px;
+  background-color: orange;
+}
