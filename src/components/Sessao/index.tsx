@@ -1,13 +1,19 @@
 import { Card } from "../Card";
 import style from "./style.module.scss";
 
-const Sessao = () => {
+const Sessao = ({ title, card }) => {
   return (
     <section className={style.conteiner}>
-      <div>
-        <h2>Musicas</h2>
+      <div className={style.divTitle}>
+        <h2>{title}</h2>
       </div>
-      <Card />
+      {card.map((element) => (
+        <Card
+          key={element.id}
+          title={element.title}
+          itensLink={element.itensLink}
+        />
+      ))}
       <div className={style.divCard}>
         <button>Criar Card</button>
       </div>
