@@ -3,12 +3,14 @@ import style from "./style.module.scss";
 import Modal from "../Modal";
 import { CreateCard } from "../CreateCard";
 import { DeleteSessao } from "../DeleteSessao";
+import { UpdateSessao } from "../UpdateSessao";
 import { useState } from "react";
 
 const Sessao = ({ title, card, idSessao }) => {
   const [openModal, setOpenModal] = useState(false);
-  const [idSessaoState, setIdSessaoState] = useState<string>("");
   const [openModalDelete, setOpenModalDelete] = useState(false);
+  const [openModalUpdate, setOpenModalUpdate] = useState(false);
+  const [idSessaoState, setIdSessaoState] = useState<string>("");
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -26,6 +28,14 @@ const Sessao = ({ title, card, idSessao }) => {
     setOpenModalDelete(false);
   };
 
+  const handleOpenModalUpdate = () => {
+    setOpenModalUpdate(true);
+  };
+
+  const handleCloseModalUpdate = () => {
+    setOpenModalUpdate(false);
+  };
+
   return (
     <>
       <Modal open={openModal} handleClose={handleCloseModal}>
@@ -34,11 +44,20 @@ const Sessao = ({ title, card, idSessao }) => {
       <Modal open={openModalDelete} handleClose={handleCloseModalDelete}>
         <DeleteSessao close={handleCloseModalDelete} idSessao={idSessaoState} />
       </Modal>
+      <Modal open={openModalUpdate} handleClose={handleCloseModalUpdate}>
+        <UpdateSessao close={handleCloseModalUpdate} idSessao={idSessaoState} />
+      </Modal>
       <section className={style.conteiner}>
         <div className={style.divTitle}>
           <h2>{title}</h2>
           <div>
-            <button>Atualizar</button>
+            <button
+              onClick={() => {
+                handleOpenModalUpdate(), setIdSessaoState(idSessao);
+              }}
+            >
+              Atualizar
+            </button>
             <button
               onClick={() => {
                 handleOpenModalDelete(), setIdSessaoState(idSessao);
