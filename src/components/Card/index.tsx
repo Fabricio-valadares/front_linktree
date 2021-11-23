@@ -4,10 +4,12 @@ import { useState } from "react";
 import { CreateLink } from "../CreateLink";
 import Modal from "../Modal";
 import { DeleteCard } from "../DeleteCard";
+import { UpdateCard } from "../UpdateCard";
 
 const Card = ({ title, itensLink, idCard }) => {
   const [openModal, setOpenModal] = useState(false);
   const [openModalDelete, setOpenModalDelete] = useState(false);
+  const [openModalUpdate, setOpenModalUpdate] = useState(false);
   const [idCardState, setIdCardState] = useState<string>("");
 
   const handleOpenModal = () => {
@@ -26,6 +28,14 @@ const Card = ({ title, itensLink, idCard }) => {
     setOpenModalDelete(false);
   };
 
+  const handleOpenModalUpdate = () => {
+    setOpenModalUpdate(true);
+  };
+
+  const handleCloseModalUpdate = () => {
+    setOpenModalUpdate(false);
+  };
+
   return (
     <>
       <Modal open={openModal} handleClose={handleCloseModal}>
@@ -33,6 +43,9 @@ const Card = ({ title, itensLink, idCard }) => {
       </Modal>
       <Modal open={openModalDelete} handleClose={handleCloseModalDelete}>
         <DeleteCard close={handleCloseModalDelete} idCard={idCardState} />
+      </Modal>
+      <Modal open={openModalUpdate} handleClose={handleCloseModalUpdate}>
+        <UpdateCard close={handleCloseModalUpdate} idCard={idCardState} />
       </Modal>
       <div className={style.cardArea}>
         <div className={style.title}>
@@ -52,7 +65,13 @@ const Card = ({ title, itensLink, idCard }) => {
             Criar Link
           </button>
           <div>
-            <button>Atualizar</button>
+            <button
+              onClick={() => {
+                handleOpenModalUpdate(), setIdCardState(idCard);
+              }}
+            >
+              Atualizar
+            </button>
             <button
               onClick={() => {
                 handleOpenModalDelete(), setIdCardState(idCard);
