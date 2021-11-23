@@ -30,6 +30,7 @@ const AreaCreateUser = () => {
           {sessao.map((element) => (
             <Sessao
               key={element.id}
+              idSessao={element.id}
               title={element.title}
               card={element.card}
             />
