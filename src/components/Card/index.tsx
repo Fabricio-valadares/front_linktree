@@ -3,9 +3,11 @@ import { Link } from "../Link";
 import { useState } from "react";
 import { CreateLink } from "../CreateLink";
 import Modal from "../Modal";
+import { DeleteCard } from "../DeleteCard";
 
 const Card = ({ title, itensLink, idCard }) => {
   const [openModal, setOpenModal] = useState(false);
+  const [openModalDelete, setOpenModalDelete] = useState(false);
   const [idCardState, setIdCardState] = useState<string>("");
 
   const handleOpenModal = () => {
@@ -16,10 +18,21 @@ const Card = ({ title, itensLink, idCard }) => {
     setOpenModal(false);
   };
 
+  const handleOpenModalDelete = () => {
+    setOpenModalDelete(true);
+  };
+
+  const handleCloseModalDelete = () => {
+    setOpenModalDelete(false);
+  };
+
   return (
     <>
       <Modal open={openModal} handleClose={handleCloseModal}>
         <CreateLink close={handleCloseModal} idCard={idCardState} />
+      </Modal>
+      <Modal open={openModalDelete} handleClose={handleCloseModalDelete}>
+        <DeleteCard close={handleCloseModalDelete} idCard={idCardState} />
       </Modal>
       <div className={style.cardArea}>
         <div className={style.title}>
@@ -40,7 +53,13 @@ const Card = ({ title, itensLink, idCard }) => {
           </button>
           <div>
             <button>Atualizar</button>
-            <button>Excluir</button>
+            <button
+              onClick={() => {
+                handleOpenModalDelete(), setIdCardState(idCard);
+              }}
+            >
+              Excluir
+            </button>
           </div>
         </div>
       </div>
