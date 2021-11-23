@@ -29,6 +29,7 @@ const Sessao = ({ title, card, idSessao }) => {
           <Card
             key={element.id}
             title={element.title}
+            idCard={element.id}
             itensLink={element.itensLink}
           />
         ))}
