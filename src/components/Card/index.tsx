@@ -38,6 +38,10 @@ const Card = ({ title, itensLink, idCard }) => {
           >
             Criar Link
           </button>
+          <div>
+            <button>Atualizar</button>
+            <button>Excluir</button>
+          </div>
         </div>
       </div>
     </>

@@ -2,9 +2,13 @@ import style from "./style.module.scss";
 
 const Link = ({ dataLink }) => {
   return (
-    <p className={style.link} key={dataLink.id}>
-      {dataLink.link}
-    </p>
+    <div className={style.divLink}>
+      <p key={dataLink.id}>{dataLink.link}</p>
+      <div>
+        <button>Atualizar</button>
+        <button>Excluir</button>
+      </div>
+    </div>
   );
 };
 

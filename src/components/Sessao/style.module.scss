@@ -16,8 +16,9 @@
   background-color: mediumspringgreen;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  padding-left: 20px;
+  padding: 0 20px 0 20px;
   border-radius: 0 0 5px 5px;
 }
 
@@ -27,7 +28,7 @@
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding-left: 20px;
+  justify-content: space-between;
+  padding: 0 20px 0 20px;
   border-radius: 5px 5px 0 0;
 }
