@@ -1,0 +1,59 @@
+.cardArea {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  width: 90%;
+  // background-color: mediumorchid;
+  background-color: #c5c2c2;
+  margin: 20px 0 20px 0;
+  border-radius: 5px;
+}
+
+.divCard {
+  width: 100%;
+  height: auto;
+  // background-color: olive;
+  background-color: #d3d0d0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+}
+
+.button {
+  border: none;
+  background-color: inherit;
+}
+
+.buttonCreateLink {
+  border: none;
+  background-color: #383f74;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.divButton {
+  margin-right: 10px;
+}
+
+.divTitle {
+  // background-color: yellow;
+  background-color: #d3d0d0;
+  border-bottom: 1px solid rgb(190, 188, 188);
+  width: 100%;
+  padding: 9px 0 9px 10px;
+  border-radius: 5px 5px 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divLink {
+  width: 95%;
+  height: auto;
+}

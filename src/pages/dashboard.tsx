@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Dashboard } from "../components/Dashboard";
+import { Dashboard } from "../components/ComponentsDashboard/Dashboard";
 import { api } from "../services/api";
 import { useContext, useEffect } from "react";
 import { DataListSectionContext } from "../Providers/dataListSection";
