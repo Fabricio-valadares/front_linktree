@@ -1,0 +1,55 @@
+.conteiner {
+  // background-color: aqua;
+  background-color: #eaeaea;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.areaDataUser {
+  width: 70%;
+  min-width: 500px;
+  height: auto;
+  min-height: 100%;
+  // background-color: brown;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.divTitleInImgProfile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  // background-color: chartreuse;
+}
+
+.divImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.divAreaContent {
+  width: 500px;
+  height: auto;
+  // background-color: cadetblue;
+
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: flex-start;
+}
