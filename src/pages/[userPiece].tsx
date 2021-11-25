@@ -4,26 +4,23 @@ import { useContext, useEffect } from "react";
 import { api } from "../services/api";
 import { DataListSectionUserContext } from "../Providers/datalistUserSection";
 
-export const requestApiListUser = (setSessaoUser: any) => {
+export const requestApiListUser = (setSessaoUser, queryUrl) => {
   api
-    .get("/section/listsectionuser", {
-      headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Mzc2NzkzOTksImV4cCI6MTYzNzg1MjE5OSwic3ViIjoiY2MxOGY0NzktMWRlYi00NTI2LTk4MDItYzJmNzczOWM1NzJkIn0.RIqfXbKZFrf8pkbXDJww5VEowRoqqgdYqPJTRcPzNvc`,
-      },
-    })
+    .get(`/listdata/${queryUrl}`)
     .then((response) => {
-      setSessaoUser(response.data);
+      setSessaoUser(response.data[0].section);
     })
     .catch((err) => console.log(err));
 };
 
 const UserPiece = () => {
   const { userPiece } = useRouter().query;
+
   const { setSessaoUser } = useContext(DataListSectionUserContext);
 
   useEffect(() => {
-    requestApiListUser(setSessaoUser);
-  }, []);
+    requestApiListUser(setSessaoUser, userPiece);
+  }, [userPiece]);
 
   return <Container title={userPiece} />;
 };

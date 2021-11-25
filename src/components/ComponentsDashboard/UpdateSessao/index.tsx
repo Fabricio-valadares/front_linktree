@@ -7,6 +7,11 @@ import { DataListSectionContext } from "../../../Providers/dataListSection";
 const UpdateSessao = ({ close, idSessao }) => {
   const { setSessao } = useContext(DataListSectionContext);
   const [textInput, setTextInput] = useState<string>("");
+  const [token, setToken] = useState(() => {
+    const token = localStorage.getItem("token") || "";
+
+    return JSON.parse(token);
+  });
 
   const updateLayoutSessao = async () => {
     const dataFinal = { title: textInput };
@@ -14,12 +19,12 @@ const UpdateSessao = ({ close, idSessao }) => {
     api
       .put(`/section/update/${idSessao}`, dataFinal, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Mzc2NzkzOTksImV4cCI6MTYzNzg1MjE5OSwic3ViIjoiY2MxOGY0NzktMWRlYi00NTI2LTk4MDItYzJmNzczOWM1NzJkIn0.RIqfXbKZFrf8pkbXDJww5VEowRoqqgdYqPJTRcPzNvc`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
         close();
-        requestApiListSessao(setSessao);
+        requestApiListSessao(setSessao, token);
       })
       .catch((err) => console.log(err));
   };

@@ -1,14 +1,15 @@
 import Head from "next/head";
 import { Dashboard } from "../components/ComponentsDashboard/Dashboard";
 import { api } from "../services/api";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataListSectionContext } from "../Providers/dataListSection";
+import { useRouter } from "next/router";
 
-export const requestApiListSessao = (setSessao: any) => {
+export const requestApiListSessao = (setSessao, token) => {
   api
     .get("/section/listsectionuser", {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Mzc2NzkzOTksImV4cCI6MTYzNzg1MjE5OSwic3ViIjoiY2MxOGY0NzktMWRlYi00NTI2LTk4MDItYzJmNzczOWM1NzJkIn0.RIqfXbKZFrf8pkbXDJww5VEowRoqqgdYqPJTRcPzNvc`,
+        Authorization: `Bearer ${token}`,
       },
     })
     .then((response) => {
@@ -17,11 +18,16 @@ export const requestApiListSessao = (setSessao: any) => {
     .catch((err) => console.log(err));
 };
 
-const DashboardPage = () => {
+const DashboardPage = (props) => {
   const { setSessao } = useContext(DataListSectionContext);
+  const [token, setToken] = useState(() => {
+    const token = localStorage.getItem("token") || "";
+
+    return JSON.parse(token);
+  });
 
   useEffect(() => {
-    requestApiListSessao(setSessao);
+    requestApiListSessao(setSessao, token);
   }, []);
 
   return (
@@ -34,4 +40,20 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+const authPage = (ComponetPage) => (props) => {
+  if (typeof window !== "undefined") {
+    const route = useRouter();
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      route.push("/login");
+    } else {
+      return <ComponetPage {...props} />;
+    }
+  }
+
+  return null;
+};
+
+export default authPage(DashboardPage);

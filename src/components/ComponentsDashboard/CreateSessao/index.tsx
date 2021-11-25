@@ -9,16 +9,22 @@ const CreateSessao = ({ close }) => {
   const [textInput, setTextInput] = useState<string>("");
   const { setSessao } = useContext(DataListSectionContext);
 
+  const [token, setToken] = useState(() => {
+    const token = localStorage.getItem("token") || "";
+
+    return JSON.parse(token);
+  });
+
   const createLayoutSessao = async () => {
     const dataFinal = { title: textInput };
     api
       .post("/section/create", dataFinal, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Mzc2NzkzOTksImV4cCI6MTYzNzg1MjE5OSwic3ViIjoiY2MxOGY0NzktMWRlYi00NTI2LTk4MDItYzJmNzczOWM1NzJkIn0.RIqfXbKZFrf8pkbXDJww5VEowRoqqgdYqPJTRcPzNvc`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
-        requestApiListSessao(setSessao);
+        requestApiListSessao(setSessao, token);
       })
       .catch((err) => console.log(err));
   };

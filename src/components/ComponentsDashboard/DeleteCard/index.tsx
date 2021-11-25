@@ -1,22 +1,27 @@
 import style from "./style.module.scss";
 import { api } from "../../../services/api";
 import { requestApiListSessao } from "../../../pages/dashboard";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataListSectionContext } from "../../../Providers/dataListSection";
 
 const DeleteCard = ({ close, idCard }) => {
   const { setSessao } = useContext(DataListSectionContext);
+  const [token, setToken] = useState(() => {
+    const token = localStorage.getItem("token") || "";
+
+    return JSON.parse(token);
+  });
 
   const deleteLayoutCard = async () => {
     api
       .delete(`/card/deletecard/${idCard}`, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Mzc2NzkzOTksImV4cCI6MTYzNzg1MjE5OSwic3ViIjoiY2MxOGY0NzktMWRlYi00NTI2LTk4MDItYzJmNzczOWM1NzJkIn0.RIqfXbKZFrf8pkbXDJww5VEowRoqqgdYqPJTRcPzNvc`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
         close();
-        requestApiListSessao(setSessao);
+        requestApiListSessao(setSessao, token);
       })
       .catch((err) => console.log(err));
   };

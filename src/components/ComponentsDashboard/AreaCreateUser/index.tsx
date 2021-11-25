@@ -4,10 +4,18 @@ import { useContext, useState } from "react";
 import { DataListSectionContext } from "../../../Providers/dataListSection";
 import Modal from "../../ComponentsDashboard/Modal";
 import { CreateSessao } from "../../ComponentsDashboard/CreateSessao";
+import jwt_decode from "jwt-decode";
 
 const AreaCreateUser = () => {
   const { sessao } = useContext(DataListSectionContext);
+
   const [openModal, setOpenModal] = useState(false);
+  const [token, setToken] = useState(() => {
+    const token = localStorage.getItem("token") || "";
+
+    return JSON.parse(token);
+  });
+  const { urlpiece }: any = jwt_decode(token);
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -27,7 +35,7 @@ const AreaCreateUser = () => {
           <iframe
             height="100%"
             width="100%"
-            src="http://localhost:3000/favaco"
+            src={`http://localhost:3000/${urlpiece}`}
           ></iframe>
         </div>
       </section>
