@@ -43,7 +43,7 @@ const Link = ({ dataLink, idLink }) => {
               handleOpenModalUpdate(), setIdLinkState(idLink);
             }}
           >
-            <FiEdit3 size={18} color="#000" />
+            <FiEdit3 className={style.icons} size={18} color="#555252" />
           </button>
           <button
             className={style.button}
@@ -51,7 +51,7 @@ const Link = ({ dataLink, idLink }) => {
               handleOpenModalDelete(), setIdLinkState(idLink);
             }}
           >
-            <FiTrash2 size={18} color="#000" />
+            <FiTrash2 size={18} color="#555252" />
           </button>
         </div>
       </div>

@@ -3,10 +3,11 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  // background-color: mediumblue;
-  // background-color: #dfdede;
-  background-color: #fff;
+  transition: background-color 0.4s;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  // border: 1px solid #181818;
+  background-color: #fff;
   height: auto;
   width: 95%;
   margin: 20px 0 20px 0;
@@ -20,38 +21,37 @@
 
 .divCard {
   width: 100%;
-  height: 37px;
-  // background-color: mediumspringgreen;
-  background-color: #d3d0d0;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 25px 20px 24px 20px;
+  padding: 15px 20px 24px 20px;
   border-radius: 0 0 5px 5px;
 }
 
 .divTitle {
-  // background-color: lawngreen;
-  background-color: #d3d0d0;
+  // background-color: #181818;
   width: 100%;
-  height: 40px;
+  // color: #fff;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px 0 20px;
   border-radius: 5px 5px 0 0;
-  border-bottom: 1px solid rgb(190, 188, 188);
+  // border-bottom: 0.5px solid #181818;
 }
 
 .title {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .buttonCreateCard {
-  border: none;
-  background-color: #54bb3a;
-  color: #fff;
+  background-color: inherit;
+  // color: #fff;
+  border: 1px solid #c7c3c3;
   padding: 8px;
   border-radius: 5px;
 }

@@ -33,17 +33,17 @@ a {
   text-decoration: none;
 }
 
-// ::-webkit-scrollbar-track {
-//   background-color: #000;
-// }
-// ::-webkit-scrollbar {
-//   width: 6px;
-//   background: chocolate;
-// }
-// ::-webkit-scrollbar-thumb {
-//   background: cyan;
-//   border-radius: 5px;
-// }
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background: chocolate;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(61, 59, 59);
+  border-radius: 7px;
+}
 
 // ---------------------------------
 
@@ -161,7 +161,7 @@ body {
   line-height: 1;
   box-sizing: border-box;
   font: 400 1rem "Roboto", sans-serif;
-  color: #293039;
+  // color: #eaeaea;
 }
 ol,
 ul {

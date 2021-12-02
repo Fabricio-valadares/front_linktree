@@ -5,12 +5,35 @@
 
   width: 100%;
   height: 10vh;
-  // background-color: khaki;
-  background-color: #d3d0d0;
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, 0.1);
+  // border-bottom: 1px solid #3d3a3a;
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .myLink {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #000;
+  font-weight: 600;
+}
+
+.menu {
+  color: #000;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttonLogout {
+  border: none;
+  background-color: inherit;
+  border: 1px solid #443f3f;
+  color: #fff;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
 }

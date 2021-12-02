@@ -1,6 +1,7 @@
 import style from "./style.module.scss";
 import jwt_decode from "jwt-decode";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [token, setToken] = useState(() => {
@@ -9,6 +10,13 @@ const Header = () => {
     return JSON.parse(token);
   });
   const { urlpiece }: any = jwt_decode(token);
+  const route = useRouter();
+
+  const logoutApp = () => {
+    localStorage.removeItem("token");
+
+    route.push("/login");
+  };
 
   return (
     <header className={style.header}>
@@ -18,8 +26,13 @@ const Header = () => {
         </a>
       </div>
       <nav>
-        <ul>
+        <ul className={style.menu}>
           <li>Perfil</li>
+          <li>
+            <button className={style.buttonLogout} onClick={logoutApp}>
+              Sair
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
