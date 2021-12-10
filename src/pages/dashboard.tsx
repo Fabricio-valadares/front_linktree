@@ -40,20 +40,20 @@ const DashboardPage = (props) => {
   );
 };
 
-const authPage = (ComponetPage) => (props) => {
-  if (typeof window !== "undefined") {
-    const route = useRouter();
+// const authPage = (ComponetPage) => (props) => {
+//   if (typeof window !== "undefined") {
+//     const route = useRouter();
 
-    const token = localStorage.getItem("token");
+//     const token = localStorage.getItem("token");
 
-    if (!token) {
-      route.push("/login");
-    } else {
-      return <ComponetPage {...props} />;
-    }
-  }
+//     if (!token) {
+//       route.push("/login");
+//     } else {
+//       return <ComponetPage {...props} />;
+//     }
+//   }
 
-  return null;
-};
+//   return null;
+// };
 
-export default authPage(DashboardPage);
+export default DashboardPage;
