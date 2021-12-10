@@ -8,7 +8,13 @@ const Card = ({ title, itensLink }) => {
           <h2 className={style.title}>{title}</h2>
         </div>
         {itensLink.map((element) => (
-          <a className={style.divLink} href={element.link} target="_blank">
+          <a
+            key={element.id}
+            className={style.divLink}
+            href={element.link}
+            rel="noreferrer"
+            target="_blank"
+          >
             {element.title}
           </a>
         ))}

@@ -9,7 +9,11 @@ const Sessao = ({ card, title }) => {
       </div>
       <div className={style.divCard}>
         {card.map((element) => (
-          <Card title={element.title} itensLink={element.itensLink} />
+          <Card
+            key={element.id}
+            title={element.title}
+            itensLink={element.itensLink}
+          />
         ))}
       </div>
     </section>

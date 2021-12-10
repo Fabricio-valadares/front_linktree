@@ -72,7 +72,7 @@ const Card = ({ title, itensLink, idCard }) => {
         </div>
         <div className={style.divLink}>
           {itensLink.map((element: { id: string; link: string }) => (
-            <Link dataLink={element} idLink={element.id} />
+            <Link key={element.id} dataLink={element} idLink={element.id} />
           ))}
         </div>
         <div className={style.divCard}>
