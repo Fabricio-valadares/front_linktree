@@ -24,6 +24,7 @@ const Header = () => {
         <a
           className={style.linkA}
           href={`http://localhost:3000/${urlpiece}`}
+          rel="noreferrer"
           target="_blank"
         >
           Meu Link: {`http://localhost:3000/${urlpiece}`}
@@ -33,6 +34,7 @@ const Header = () => {
         <a
           className={style.linkA}
           href={`http://localhost:3000/${urlpiece}`}
+          rel="noreferrer"
           target="_blank"
         >
           Ver book
