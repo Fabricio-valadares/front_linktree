@@ -33,11 +33,13 @@ const UpdateSessao = ({ close, idSessao }) => {
     <section className={style.conteiner}>
       <div className={style.divInputButton}>
         <input
+          className={style.input}
           onChange={(event) => setTextInput(event.target.value)}
           type="text"
           placeholder="Novo titulo sessão"
         ></input>
         <button
+          className={style.button}
           onClick={() => {
             close(), updateLayoutSessao();
           }}

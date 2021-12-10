@@ -1,18 +1,15 @@
 import style from "./style.module.scss";
 import { Card } from "../Card";
-import SimpleAccordion from "../Accordion";
 
 const Sessao = ({ card, title }) => {
   return (
     <section className={style.conteiner}>
       <div>
-        <h1>{title}</h1>
+        <h1 className={style.titleSessao}>{title}</h1>
       </div>
-      <div>
+      <div className={style.divCard}>
         {card.map((element) => (
-          <SimpleAccordion key={element.id} title={element.title}>
-            <Card itensLink={element.itensLink} />
-          </SimpleAccordion>
+          <Card title={element.title} itensLink={element.itensLink} />
         ))}
       </div>
     </section>

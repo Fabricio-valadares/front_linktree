@@ -33,11 +33,13 @@ const CreateSessao = ({ close }) => {
     <section className={style.conteiner}>
       <div className={style.divInputButton}>
         <input
+          className={style.input}
           onChange={(event) => setTextInput(event.target.value)}
           type="text"
           placeholder="Titulo da sessão"
         ></input>
         <button
+          className={style.button}
           onClick={() => {
             close(), createLayoutSessao();
           }}

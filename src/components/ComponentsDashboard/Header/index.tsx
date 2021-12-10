@@ -21,8 +21,21 @@ const Header = () => {
   return (
     <header className={style.header}>
       <div className={style.myLink}>
-        <a href={`http://localhost:3000/${urlpiece}`} target="_blank">
+        <a
+          className={style.linkA}
+          href={`http://localhost:3000/${urlpiece}`}
+          target="_blank"
+        >
           Meu Link: {`http://localhost:3000/${urlpiece}`}
+        </a>
+      </div>
+      <div className={style.myLinkMobile}>
+        <a
+          className={style.linkA}
+          href={`http://localhost:3000/${urlpiece}`}
+          target="_blank"
+        >
+          Ver book
         </a>
       </div>
       <nav>

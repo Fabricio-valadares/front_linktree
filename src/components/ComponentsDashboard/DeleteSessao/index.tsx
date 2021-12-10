@@ -30,6 +30,7 @@ const DeleteSessao = ({ close, idSessao }) => {
     <section className={style.conteiner}>
       <div className={style.divInputButton}>
         <button
+          className={style.button}
           onClick={() => {
             close();
           }}
@@ -37,6 +38,7 @@ const DeleteSessao = ({ close, idSessao }) => {
           Cancelar
         </button>
         <button
+          className={style.button}
           onClick={() => {
             close(), deleteLayoutSessao();
           }}

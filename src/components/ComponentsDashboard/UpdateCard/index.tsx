@@ -36,8 +36,10 @@ const UpdateCard = ({ close, idCard }) => {
           onChange={(event) => setTextInput(event.target.value)}
           type="text"
           placeholder="Novo titulo card"
+          className={style.input}
         ></input>
         <button
+          className={style.button}
           onClick={() => {
             close(), updateLayoutCard();
           }}

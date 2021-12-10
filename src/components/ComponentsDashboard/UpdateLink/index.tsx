@@ -6,7 +6,8 @@ import { DataListSectionContext } from "../../../Providers/dataListSection";
 
 const UpdateLink = ({ close, idLink }) => {
   const { setSessao } = useContext(DataListSectionContext);
-  const [textInput, setTextInput] = useState<string>("");
+  const [textInput, setTextInput] = useState<string>(undefined);
+  const [textInputTitle, setTextInputTitle] = useState<string>(undefined);
   const [token, setToken] = useState(() => {
     const token = localStorage.getItem("token") || "";
 
@@ -14,7 +15,7 @@ const UpdateLink = ({ close, idLink }) => {
   });
 
   const updateLayoutLink = async () => {
-    const dataFinal = { link: textInput };
+    const dataFinal = { link: textInput, title: textInputTitle };
 
     api
       .put(`/itens/updatelink/${idLink}`, dataFinal, {
@@ -33,11 +34,19 @@ const UpdateLink = ({ close, idLink }) => {
     <section className={style.conteiner}>
       <div className={style.divInputButton}>
         <input
-          onChange={(event) => setTextInput(event.target.value)}
+          className={style.input}
+          onChange={(event) => setTextInputTitle(event.target.value)}
           type="text"
           placeholder="Novo titulo link"
         ></input>
+        <input
+          className={style.input}
+          onChange={(event) => setTextInput(event.target.value)}
+          type="text"
+          placeholder="Novo link"
+        ></input>
         <button
+          className={style.button}
           onClick={() => {
             close(), updateLayoutLink();
           }}

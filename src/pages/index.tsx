@@ -1,14 +1,15 @@
 import style from "./style.module.scss";
 import Head from "next/head";
+import { Header } from "../components/ComponentsHome/header";
 
 const Home = () => {
   return (
-    <>
+    <main className={style.main}>
       <Head>
         <title>Home</title>
       </Head>
-      <h1 className={style.title}>Titulo</h1>
-    </>
+      <Header />
+    </main>
   );
 };
 

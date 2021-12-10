@@ -37,8 +37,10 @@ const CreateCard = ({ close, idSessao }) => {
           onChange={(event) => setTextInput(event.target.value)}
           type="text"
           placeholder="Titulo do card"
+          className={style.input}
         ></input>
         <button
+          className={style.button}
           onClick={() => {
             close(), createLayoutCard();
           }}

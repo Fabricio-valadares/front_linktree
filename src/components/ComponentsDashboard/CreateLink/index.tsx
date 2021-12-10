@@ -7,6 +7,7 @@ import { requestApiListSessao } from "../../../pages/dashboard";
 
 const CreateLink = ({ close, idCard }) => {
   const [textInput, setTextInput] = useState<string>("");
+  const [textInputLink, setTextInputLink] = useState<string>("");
   const { setSessao } = useContext(DataListSectionContext);
 
   const [token, setToken] = useState(() => {
@@ -16,7 +17,7 @@ const CreateLink = ({ close, idCard }) => {
   });
 
   const createLayoutLink = async () => {
-    const dataFinal = { link: textInput };
+    const dataFinal = { link: textInputLink, title: textInput };
 
     api
       .post(`/itens/create/${idCard}`, dataFinal, {
@@ -34,11 +35,19 @@ const CreateLink = ({ close, idCard }) => {
     <section className={style.conteiner}>
       <div className={style.divInputButton}>
         <input
+          className={style.input}
           onChange={(event) => setTextInput(event.target.value)}
           type="text"
           placeholder="Titulo do link"
         ></input>
+        <input
+          className={style.input}
+          onChange={(event) => setTextInputLink(event.target.value)}
+          type="text"
+          placeholder="link"
+        ></input>
         <button
+          className={style.button}
           onClick={() => {
             close(), createLayoutLink();
           }}

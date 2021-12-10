@@ -1,1 +1,40 @@
+.divLink {
+  background-color: #fff;
+  border-top: 1px solid #c7c3c3;
+  border-left: 1px solid #c7c3c3;
+  border-right: 1px solid #c7c3c3;
+  border-bottom: 1px solid #c7c3c3;
+  border-radius: 3px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
 
+  &:hover {
+    transform: scale(1.06);
+  }
+}
+
+.divCard {
+  background-color: #eeeeee42;
+
+  border-top: 1px solid #c7c3c3;
+  border-left: 1px solid #c7c3c3;
+  border-right: 1px solid #c7c3c3;
+  border-bottom: 1px solid #c7c3c3;
+
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 10px 0;
+}

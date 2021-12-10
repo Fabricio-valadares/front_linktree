@@ -58,7 +58,7 @@ const Sessao = ({ title, card, idSessao }) => {
                 handleOpenModalUpdate(), setIdSessaoState(idSessao);
               }}
             >
-              <FiEdit size={22} color="#fff" />
+              <FiEdit size={22} color="#b6b3b3" />
             </button>
             <button
               className={style.button}
@@ -66,7 +66,7 @@ const Sessao = ({ title, card, idSessao }) => {
                 handleOpenModalDelete(), setIdSessaoState(idSessao);
               }}
             >
-              <FiTrash2 size={22} color="#fff" />
+              <FiTrash2 size={22} color="#a9b4aa" />
             </button>
           </div>
         </div>

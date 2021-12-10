@@ -30,6 +30,7 @@ const DeleteCard = ({ close, idCard }) => {
     <section className={style.conteiner}>
       <div className={style.divInputButton}>
         <button
+          className={style.button}
           onClick={() => {
             close();
           }}
@@ -37,6 +38,7 @@ const DeleteCard = ({ close, idCard }) => {
           Cancelar
         </button>
         <button
+          className={style.button}
           onClick={() => {
             close(), deleteLayoutCard();
           }}

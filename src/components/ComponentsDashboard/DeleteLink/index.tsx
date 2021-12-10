@@ -30,6 +30,7 @@ const DeleteLink = ({ close, idLink }) => {
     <section className={style.conteiner}>
       <div className={style.divInputButton}>
         <button
+          className={style.button}
           onClick={() => {
             close();
           }}
@@ -37,6 +38,7 @@ const DeleteLink = ({ close, idLink }) => {
           Cancelar
         </button>
         <button
+          className={style.button}
           onClick={() => {
             close(), deleteLayoutLink();
           }}

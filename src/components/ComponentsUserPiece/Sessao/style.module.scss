@@ -1,3 +1,18 @@
 .conteiner {
-  width: 500px;
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.divCard {
+  width: 100%;
+}
+
+.titleSessao {
+  color: #000;
+  font-size: 21px;
+  padding: 13px 0 7px 0;
 }

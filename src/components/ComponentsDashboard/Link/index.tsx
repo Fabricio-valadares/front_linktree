@@ -35,7 +35,15 @@ const Link = ({ dataLink, idLink }) => {
         <UpdateLink close={handleCloseModalUpdate} idLink={idLinkState} />
       </Modal>
       <div className={style.divLink}>
-        <p key={dataLink.id}>{dataLink.link}</p>
+        <div className={style.divTitleLink}>
+          <p key={dataLink.id} className={style.textTitle}>
+            {dataLink.title}
+          </p>
+          <p key={dataLink.id} className={style.textLink}>
+            {dataLink.link}
+          </p>
+        </div>
+
         <div>
           <button
             className={style.button}

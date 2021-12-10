@@ -30,7 +30,7 @@ const AreaCreateUser = () => {
       <Modal open={openModal} handleClose={handleCloseModal}>
         <CreateSessao close={handleCloseModal} />
       </Modal>
-      <section className={style.conteinerPreview}>
+      {/* <section className={style.conteinerPreview}>
         <div className={style.divIframe}>
           <iframe
             height="100%"
@@ -38,7 +38,7 @@ const AreaCreateUser = () => {
             src={`http://localhost:3000/${urlpiece}`}
           ></iframe>
         </div>
-      </section>
+      </section> */}
       <section className={style.conteiner}>
         <div className={style.conteinerCreateUser}>
           <div className={style.createSessao}>
