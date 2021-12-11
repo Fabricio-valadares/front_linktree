@@ -3,7 +3,7 @@ import { Dashboard } from "../components/ComponentsDashboard/Dashboard";
 import { api } from "../services/api";
 import { useContext, useEffect, useState } from "react";
 import { DataListSectionContext } from "../Providers/dataListSection";
-import { useRouter } from "next/router";
+import { parseCookies } from "nookies";
 
 export const requestApiListSessao = (setSessao, token) => {
   api
@@ -20,11 +20,7 @@ export const requestApiListSessao = (setSessao, token) => {
 
 const DashboardPage = (props) => {
   const { setSessao } = useContext(DataListSectionContext);
-  const [token, setToken] = useState(() => {
-    const token = localStorage.getItem("token") || "";
-
-    return JSON.parse(token);
-  });
+  const { authTokenNext: token } = parseCookies();
 
   useEffect(() => {
     requestApiListSessao(setSessao, token);
@@ -40,20 +36,21 @@ const DashboardPage = (props) => {
   );
 };
 
-// const authPage = (ComponetPage) => (props) => {
-//   if (typeof window !== "undefined") {
-//     const route = useRouter();
+export const getServerSideProps = async (ctx) => {
+  const { ["authTokenNext"]: token } = parseCookies(ctx);
 
-//     const token = localStorage.getItem("token");
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
 
-//     if (!token) {
-//       route.push("/login");
-//     } else {
-//       return <ComponetPage {...props} />;
-//     }
-//   }
-
-//   return null;
-// };
+  return {
+    props: { token: token },
+  };
+};
 
 export default DashboardPage;

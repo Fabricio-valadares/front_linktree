@@ -2,18 +2,15 @@ import style from "./style.module.scss";
 import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { destroyCookie, parseCookies } from "nookies";
 
 const Header = () => {
-  const [token, setToken] = useState(() => {
-    const token = localStorage.getItem("token") || "";
-
-    return JSON.parse(token);
-  });
+  const { authTokenNext: token } = parseCookies();
   const { urlpiece }: any = jwt_decode(token);
   const route = useRouter();
 
   const logoutApp = () => {
-    localStorage.removeItem("token");
+    destroyCookie(null, "authTokenNext");
 
     route.push("/login");
   };

@@ -2,6 +2,7 @@ import style from "./style.module.scss";
 import { useState } from "react";
 import { api } from "../../../services/api";
 import { useRouter } from "next/router";
+import { setCookie } from "nookies";
 
 const ContainerLogin = () => {
   const [email, setEmail] = useState("");
@@ -18,8 +19,10 @@ const ContainerLogin = () => {
     api
       .post("/login", dataFinal)
       .then((response) => {
-        localStorage.clear();
-        localStorage.setItem("token", JSON.stringify(response.data.token));
+        setCookie(undefined, "authTokenNext", response.data.token, {
+          maxAge: 60 * 60 * 1, // 1 hora,
+        });
+
         route.push("/dashboard");
       })
       .catch((error) => console.log(error));

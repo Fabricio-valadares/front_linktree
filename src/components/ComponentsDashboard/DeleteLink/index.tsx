@@ -3,14 +3,11 @@ import { api } from "../../../services/api";
 import { requestApiListSessao } from "../../../pages/dashboard";
 import { useContext, useState } from "react";
 import { DataListSectionContext } from "../../../Providers/dataListSection";
+import { parseCookies } from "nookies";
 
 const DeleteLink = ({ close, idLink }) => {
   const { setSessao } = useContext(DataListSectionContext);
-  const [token, setToken] = useState(() => {
-    const token = localStorage.getItem("token") || "";
-
-    return JSON.parse(token);
-  });
+  const { authTokenNext: token } = parseCookies();
 
   const deleteLayoutLink = async () => {
     api

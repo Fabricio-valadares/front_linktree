@@ -3,15 +3,12 @@ import { api } from "../../../services/api";
 import { requestApiListSessao } from "../../../pages/dashboard";
 import { useContext, useState } from "react";
 import { DataListSectionContext } from "../../../Providers/dataListSection";
+import { parseCookies } from "nookies";
 
 const UpdateCard = ({ close, idCard }) => {
   const { setSessao } = useContext(DataListSectionContext);
   const [textInput, setTextInput] = useState<string>("");
-  const [token, setToken] = useState(() => {
-    const token = localStorage.getItem("token") || "";
-
-    return JSON.parse(token);
-  });
+  const { authTokenNext: token } = parseCookies();
 
   const updateLayoutCard = async () => {
     const dataFinal = { title: textInput };

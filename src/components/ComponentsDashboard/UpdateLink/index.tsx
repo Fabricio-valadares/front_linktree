@@ -3,16 +3,13 @@ import { api } from "../../../services/api";
 import { requestApiListSessao } from "../../../pages/dashboard";
 import { useContext, useState } from "react";
 import { DataListSectionContext } from "../../../Providers/dataListSection";
+import { parseCookies } from "nookies";
 
 const UpdateLink = ({ close, idLink }) => {
   const { setSessao } = useContext(DataListSectionContext);
   const [textInput, setTextInput] = useState<string>(undefined);
   const [textInputTitle, setTextInputTitle] = useState<string>(undefined);
-  const [token, setToken] = useState(() => {
-    const token = localStorage.getItem("token") || "";
-
-    return JSON.parse(token);
-  });
+  const { authTokenNext: token } = parseCookies();
 
   const updateLayoutLink = async () => {
     const dataFinal = { link: textInput, title: textInputTitle };

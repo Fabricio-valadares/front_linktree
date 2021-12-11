@@ -5,16 +5,14 @@ import { DataListSectionContext } from "../../../Providers/dataListSection";
 import Modal from "../../ComponentsDashboard/Modal";
 import { CreateSessao } from "../../ComponentsDashboard/CreateSessao";
 import jwt_decode from "jwt-decode";
+import { parseCookies } from "nookies";
 
 const AreaCreateUser = () => {
   const { sessao } = useContext(DataListSectionContext);
 
   const [openModal, setOpenModal] = useState(false);
-  const [token, setToken] = useState(() => {
-    const token = localStorage.getItem("token") || "";
+  const { authTokenNext: token } = parseCookies();
 
-    return JSON.parse(token);
-  });
   const { urlpiece }: any = jwt_decode(token);
 
   const handleOpenModal = () => {

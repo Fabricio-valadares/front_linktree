@@ -4,17 +4,14 @@ import { useState } from "react";
 import { useContext } from "react";
 import { DataListSectionContext } from "../../../Providers/dataListSection";
 import { requestApiListSessao } from "../../../pages/dashboard";
+import { parseCookies } from "nookies";
 
 const CreateLink = ({ close, idCard }) => {
   const [textInput, setTextInput] = useState<string>("");
   const [textInputLink, setTextInputLink] = useState<string>("");
   const { setSessao } = useContext(DataListSectionContext);
 
-  const [token, setToken] = useState(() => {
-    const token = localStorage.getItem("token") || "";
-
-    return JSON.parse(token);
-  });
+  const { authTokenNext: token } = parseCookies();
 
   const createLayoutLink = async () => {
     const dataFinal = { link: textInputLink, title: textInput };
