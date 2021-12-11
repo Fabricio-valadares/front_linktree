@@ -26,7 +26,7 @@ const Header = () => {
       <div className={style.myLink}>
         <a
           className={style.linkA}
-          href={`http://localhost:3000/${isTokenAuth}`}
+          href={`https://favacofront.vercel.app/${isTokenAuth}`}
           rel="noreferrer"
           target="_blank"
         >
@@ -36,7 +36,7 @@ const Header = () => {
       <div className={style.myLinkMobile}>
         <a
           className={style.linkA}
-          href={`http://localhost:3000/${isTokenAuth}`}
+          href={`https://favacofront.vercel.app/${isTokenAuth}`}
           rel="noreferrer"
           target="_blank"
         >
