@@ -30,7 +30,7 @@ const Header = () => {
           rel="noreferrer"
           target="_blank"
         >
-          Meu Link: {`http://localhost:3000/${isTokenAuth}`}
+          Meu Link: {`https://favacofront.vercel.app/${isTokenAuth}`}
         </a>
       </div>
       <div className={style.myLinkMobile}>
