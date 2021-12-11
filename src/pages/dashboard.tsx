@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Dashboard } from "../components/ComponentsDashboard/Dashboard";
 import { api } from "../services/api";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { DataListSectionContext } from "../Providers/dataListSection";
 import { parseCookies } from "nookies";
 
@@ -37,7 +37,7 @@ const DashboardPage = (props) => {
 };
 
 export const getServerSideProps = async (ctx) => {
-  const { ["authTokenNext"]: token } = parseCookies(ctx);
+  const { authTokenNext: token } = parseCookies(ctx);
 
   if (!token) {
     return {

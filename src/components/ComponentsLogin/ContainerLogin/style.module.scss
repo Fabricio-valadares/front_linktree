@@ -54,3 +54,16 @@
   border-radius: 5px;
   margin-top: 20px;
 }
+
+.load {
+  animation: rotationIcon 2s linear infinite;
+
+  @keyframes rotationIcon {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

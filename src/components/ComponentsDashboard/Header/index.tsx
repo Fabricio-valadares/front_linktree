@@ -1,12 +1,18 @@
 import style from "./style.module.scss";
 import jwt_decode from "jwt-decode";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { destroyCookie, parseCookies } from "nookies";
 
 const Header = () => {
   const { authTokenNext: token } = parseCookies();
-  const { urlpiece }: any = jwt_decode(token);
+  const [isTokenAuth, setIsTokenAuth] = useState("");
+
+  useEffect(() => {
+    const { urlpiece } = jwt_decode<{ urlpiece: string }>(token);
+    setIsTokenAuth(urlpiece);
+  });
+
   const route = useRouter();
 
   const logoutApp = () => {
@@ -20,17 +26,17 @@ const Header = () => {
       <div className={style.myLink}>
         <a
           className={style.linkA}
-          href={`http://localhost:3000/${urlpiece}`}
+          href={`http://localhost:3000/${isTokenAuth}`}
           rel="noreferrer"
           target="_blank"
         >
-          Meu Link: {`http://localhost:3000/${urlpiece}`}
+          Meu Link: {`http://localhost:3000/${isTokenAuth}`}
         </a>
       </div>
       <div className={style.myLinkMobile}>
         <a
           className={style.linkA}
-          href={`http://localhost:3000/${urlpiece}`}
+          href={`http://localhost:3000/${isTokenAuth}`}
           rel="noreferrer"
           target="_blank"
         >

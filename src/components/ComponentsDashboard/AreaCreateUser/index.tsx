@@ -11,9 +11,6 @@ const AreaCreateUser = () => {
   const { sessao } = useContext(DataListSectionContext);
 
   const [openModal, setOpenModal] = useState(false);
-  const { authTokenNext: token } = parseCookies();
-
-  const { urlpiece }: any = jwt_decode(token);
 
   const handleOpenModal = () => {
     setOpenModal(true);

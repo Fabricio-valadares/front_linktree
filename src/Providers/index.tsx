@@ -9,11 +9,11 @@ interface IChildrenContext {
 
 const Providers = ({ children }: IChildrenContext) => {
   return (
-    // <AuthProvider>
-    <DataListSectionProvider>
-      <DataListSectionUserProvider>{children}</DataListSectionUserProvider>
-    </DataListSectionProvider>
-    // {/* </AuthProvider> */}
+    <AuthProvider>
+      <DataListSectionProvider>
+        <DataListSectionUserProvider>{children}</DataListSectionUserProvider>
+      </DataListSectionProvider>
+    </AuthProvider>
   );
 };
 

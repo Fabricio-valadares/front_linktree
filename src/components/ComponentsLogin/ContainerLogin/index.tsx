@@ -3,10 +3,15 @@ import { useState } from "react";
 import { api } from "../../../services/api";
 import { useRouter } from "next/router";
 import { setCookie } from "nookies";
+import { FiCode } from "react-icons/fi";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/Auth";
 
 const ContainerLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loadIcon, setLoadIcon] = useState(true);
+  const { signAuth } = useContext(AuthContext);
 
   const route = useRouter();
 
@@ -16,16 +21,9 @@ const ContainerLogin = () => {
       password: password,
     };
 
-    api
-      .post("/login", dataFinal)
-      .then((response) => {
-        setCookie(undefined, "authTokenNext", response.data.token, {
-          maxAge: 60 * 60 * 1, // 1 hora,
-        });
+    signAuth(dataFinal);
 
-        route.push("/dashboard");
-      })
-      .catch((error) => console.log(error));
+    setLoadIcon(false);
   };
 
   return (
@@ -49,7 +47,11 @@ const ContainerLogin = () => {
         ></input>
         <div className={style.divButton}>
           <button className={style.button} type="submit">
-            Entrar
+            {loadIcon ? (
+              "Entrar"
+            ) : (
+              <FiCode className={style.load} color="#fff" size={22} />
+            )}
           </button>
         </div>
       </form>
