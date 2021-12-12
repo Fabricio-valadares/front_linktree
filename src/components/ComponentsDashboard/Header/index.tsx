@@ -26,17 +26,17 @@ const Header = () => {
       <div className={style.myLink}>
         <a
           className={style.linkA}
-          href={`https://favacofront.vercel.app/${isTokenAuth}`}
+          href={`https://www.litebook.com.br/${isTokenAuth}`}
           rel="noreferrer"
           target="_blank"
         >
-          Meu Link: {`https://favacofront.vercel.app/${isTokenAuth}`}
+          Meu Link: {`https://www.litebook.com.br/${isTokenAuth}`}
         </a>
       </div>
       <div className={style.myLinkMobile}>
         <a
           className={style.linkA}
-          href={`https://favacofront.vercel.app/${isTokenAuth}`}
+          href={`https://www.litebook.com.br/${isTokenAuth}`}
           rel="noreferrer"
           target="_blank"
         >
